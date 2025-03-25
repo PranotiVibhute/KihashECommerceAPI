@@ -18,6 +18,7 @@ namespace KihashECommerceAPI.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<ContactUs> ContactUs { get; set; }
+       
 
        
     }

@@ -6,7 +6,7 @@ namespace KihashECommerceAPI.Repositories
     {
         Task<IEnumerable<CustomerOrderDto>> GetAllCustomerWithOrderDetails();
         Task<IEnumerable<CustomerOrderDto>> GetAllCustomerWithOrderDetailsLeftjoin();
-        Task <CustomerOrderDto?> GetCustomerWithOrderById(int id);
+        Task <IEnumerable<CustomerOrderDto?>> GetCustomerWithOrderById(int id);
         Task<IEnumerable<CustomerOrderPaymentDto>> GetAllCustomerWithPaymentDetails();
     }
 }

@@ -61,9 +61,20 @@ namespace KihashECommerceAPI.Repository
             return await result.ToListAsync();                         
         }
 
-        public Task<CustomerOrderDto?> GetCustomerWithOrderById(int id)
+        public async Task<IEnumerable<CustomerOrderDto?>> GetCustomerWithOrderById(int id)
         {
-            throw new NotImplementedException();
+            var result = from c in _dbContext.Customers
+                         join o in _dbContext.Orders
+                         on c.CustomerId equals o.CustomerId
+                         where c.CustomerId == id
+                         select new CustomerOrderDto
+                         {
+                             CustomerId = c.CustomerId,
+                             CustomerName = c.Name,
+                             OrderId = o.OrderId,
+                             OrderDate = o.OrderDate
+                         };
+            return await result.ToListAsync();
         }
     }
 }

@@ -29,5 +29,12 @@ namespace KihashECommerceAPI.Controllers
             return Ok(result);
 
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCustomerWithOrderById(int id)
+        {
+            var result = await _reportRepository.GetCustomerWithOrderById(id);
+            return Ok(result);
+        }
     }
 }
